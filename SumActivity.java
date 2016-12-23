@@ -20,13 +20,15 @@ public class SumActivity extends AppCompatActivity {
 
         userDao = new UserDao(this);
         ListView listView = (ListView) findViewById(R.id.listView);
-        List<User> users = userDao.getAll();
+        MyAdapter adapter=new MyAdapter();
+        listView.setAdapter(adapter);
     }
     class MyAdapter extends BaseAdapter{
+        List<User> users = userDao.getAll();
         public MyAdapter(){
             userDao.getAll();
         }
-        List<User> users = userDao.getAll();
+
         @Override
         public int getCount() {
             return 0;
